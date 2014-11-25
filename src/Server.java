@@ -60,13 +60,14 @@ class ServerHandler extends Thread{
 
 			Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
 			clpbrd.setContents(stringSelection, null);
-			System.out.println("\"" + received + "\" was copied to clipboard. Exiting");
+			System.out.println("\"" + received + "\" was copied to clipboard. Waiting for pasting. Press enter when done.");
 			
 			getClientObjectInputStream().close();
 			getClientInputStream().close();
 			clientSocket.close();
 			
 			
+			System.in.read();
 		} catch (Exception e) {
 			System.exit(0);
 		}
